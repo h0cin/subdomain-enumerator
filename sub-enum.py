@@ -24,14 +24,14 @@ def get_st_subdomains(domain):
     url = "https://api.securitytrails.com/v1/domain/" + domain + "/subdomains"
     querystring = { "children_only": "true" }
     headers = { 'accept': "application/json",
-	           'apikey': ""
+	           'apikey': "FK7uTo8KWqLAEWcvRwlIueTCwtvHXdbb"
                }
     # Query securitytrails API and get the domain's subdomains
     response = requests.request("GET", url, headers=headers, params=querystring)
     result_json = json.loads(response.text)
     subdomains = [ i + '.' + domain for i in result_json['subdomains'] ]
     # Starting check message
-    print(colored("# Checking " + str(len(subdomains)) + " subdomains for existing CNAME's","yellow"))
+    print(colored("   >> Checking " + str(len(subdomains)) + " subdomains for existing CNAME's <<\n","red"))
     # Find if there are CNAME's in every found subdomain
     cname_lists = []
     for subdomain in subdomains:
@@ -68,9 +68,9 @@ def check_cname(subdomain):
     cname_list = []
     cname_lists = []
     if cnames is not None:
-        print(colored("> SUBDOMAIN: " + str(subdomain),"white"))
+        print(colored("> SUBDOMAIN: " + str(subdomain),"yellow"))
         for hostname in cnames:
-            print("> CNAME[0]: " + str(hostname))
+            print(colored("> CNAME[0]: " + str(hostname),"white"))
             cname_dive = cname_diving(hostname)
             cname_lists.append(str(cname_dive))
         for cname in cnames:
@@ -126,11 +126,11 @@ def check_whois(cname_list):
             else:
                 now = datetime.now()
                 if (whois_record is None or whois_record.expiration_date is None):
-                    print(colored("> WHOIS: " + cname_record + "\n> Expiration: Expired or Invalid. Take a look!!","red", attrs=["blink"]))
+                    print(colored("> WHOIS: " + apex_domain + "\n> Expiration: Expired or Invalid. Take a look!!","red", attrs=["blink"]))
                 elif (whois_record.expiration_date < now):
-                    print(colored("> Warning: domain name " + cname_record + "expired by " + str(whois_record.expiration_date - now) + "!!","red", attrs=["blink"]))
+                    print(colored("> Warning: domain name " + apex_domain + "expired by " + str(whois_record.expiration_date - now) + "!!","red", attrs=["blink"]))
                 elif (whois_record.expiration_date > now):
-                    print("> WHOIS: " + cname_record + "\n> Expiration: " + str(whois_record.expiration_date))
+                    print(colored("> WHOIS: " + apex_domain , "magenta") + colored("\n> Expiration: " + str(whois_record.expiration_date),"green"))
                     print(colored("> OK by " + str(whois_record.expiration_date - now) + " hours:minutes:seconds.","green"))
                 else:
                     print(">> Missing WHOIS criteria!")
@@ -149,9 +149,7 @@ def splash():
 
      > Subdomain > CNAME > CNAME > CNAME > WHOIS
 
-     A passive DNS Stale records finder - Enjoy!!
-
-    ""","yellow"))
+     A passive DNS Stale records finder - Enjoy!!""","yellow"))
     return
 
 ##

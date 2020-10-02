@@ -1,5 +1,5 @@
 # Subdomain Enumerator
-A simple tool to enumerate subdomains, check for CNAME records inside them and find expired dns stale registries.
+A simple proof-of-concept tool to enumerate subdomains, check for CNAME records inside them and find expired dns stale registries.
 
 From a chosen target's domain name, it does the following:
 
@@ -12,6 +12,14 @@ From a chosen target's domain name, it does the following:
 Compatible with Python 3+
 
 ## Installation
+
+Installation is easy:
+
++ Download the files
++ Install software requirements
++ Get a SecurityTrails API key
++ Configure the API key
++ Have fun!
 
 ### Downloading the software
 
