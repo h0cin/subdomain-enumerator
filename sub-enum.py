@@ -13,6 +13,13 @@ from termcolor import colored
 # Get subdomains for a certain domain name using the SecurityTrails API
 def get_st_subdomains(domain):
 
+    # Check border cases such as gub.uy
+    subname = tldextract.extract(domain)
+    print(colored("> Domain: " + subname.domain + " | Suffix: " + subname.suffix,"grey"))
+
+    if domain == subname.suffix:
+        apex_domain = subname.suffix
+
     # Setup securitytrails API environment
     url = "https://api.securitytrails.com/v1/domain/" + domain + "/subdomains"
     querystring = { "children_only": "true" }
