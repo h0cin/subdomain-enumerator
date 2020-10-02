@@ -38,13 +38,9 @@ pip3 install -r requirements.txt
 ### SecurityTrails API Key
 
 You need to request an API Key from SecurityTrails in order
-to list al available subdomains, you can use the free API:
+to list al available subdomains, you can use the free API: https://securitytrails.com/app/signup?plan=api-0
 
-https://securitytrails.com/app/signup?plan=api-0
-
-Limits of the free plan in here:
-
-https://securitytrails.com/corp/pricing#api
+Limits of the free plan in here: https://securitytrails.com/corp/pricing#api
 
 Once you sign up, and login API keys are available in the 
 left menu at API > API Keys > Create New API Key
