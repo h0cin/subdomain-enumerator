@@ -17,13 +17,13 @@ Compatible with Python 3+
 
 Just git clone the repository like this:
 
-````bash
+```bash
 git clone https://github.com/h0cin/subdomain-enumerator.git
 ```
 
 Enter the newly created folder:
 
-````bash
+```bash
 cd subdomain-enumerator
 ```
 
@@ -31,7 +31,7 @@ cd subdomain-enumerator
 
 Install all required software for this script to run:
 
-````bash
+```bash
 pip3 install -r requirements.txt
 ```
 
@@ -39,7 +39,7 @@ pip3 install -r requirements.txt
 
 Available options are visible using the --help flag:
 
-````bash
+```bash
 python3 sub-enum.py --help
 
 usage: Use "python3 sub-enum.py --help" for more information
