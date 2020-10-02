@@ -15,7 +15,7 @@ def get_st_subdomains(domain):
 
     # Check border cases such as gub.uy
     subname = tldextract.extract(domain)
-    print(colored("> Domain: " + subname.domain + " | Suffix: " + subname.suffix,"grey"))
+    print(colored("   >> Domain: " + subname.domain + " | Suffix: " + subname.suffix,"white"))
 
     if domain == subname.suffix:
         apex_domain = subname.suffix
@@ -24,7 +24,7 @@ def get_st_subdomains(domain):
     url = "https://api.securitytrails.com/v1/domain/" + domain + "/subdomains"
     querystring = { "children_only": "true" }
     headers = { 'accept': "application/json",
-                'apikey': "YOUR_API_KEY"
+                'apikey': "FK7uTo8KWqLAEWcvRwlIueTCwtvHXdbb"
               }
     # Query securitytrails API and get the domain's subdomains
     response = requests.request("GET", url, headers=headers, params=querystring)
@@ -149,7 +149,7 @@ def splash():
 
      > Subdomain > CNAME > CNAME > CNAME > WHOIS
 
-     A passive DNS Stale records finder - Enjoy!!""","yellow"))
+     A passive DNS Stale records finder - Enjoy!!\n""","yellow"))
     return
 
 ##
