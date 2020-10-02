@@ -20,6 +20,7 @@ Just git clone the repository like this:
 ````bash
 git clone https://github.com/h0cin/subdomain-enumerator.git
 ```
+
 Enter the newly created folder:
 
 ````bash
