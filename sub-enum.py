@@ -24,7 +24,7 @@ def get_st_subdomains(domain):
     url = "https://api.securitytrails.com/v1/domain/" + domain + "/subdomains"
     querystring = { "children_only": "true" }
     headers = { 'accept': "application/json",
-	           'apikey': "FK7uTo8KWqLAEWcvRwlIueTCwtvHXdbb"
+	           'apikey': ""
                }
     # Query securitytrails API and get the domain's subdomains
     response = requests.request("GET", url, headers=headers, params=querystring)
