@@ -17,7 +17,7 @@ def get_st_subdomains(domain):
     url = "https://api.securitytrails.com/v1/domain/" + domain + "/subdomains"
     querystring = { "children_only": "true" }
     headers = { 'accept': "application/json",
-	           'apikey': "FK7uTo8KWqLAEWcvRwlIueTCwtvHXdbb"
+	           'apikey': ""
                }
     # Query securitytrails API and get the domain's subdomains
     response = requests.request("GET", url, headers=headers, params=querystring)
@@ -132,10 +132,27 @@ def check_whois(cname_list):
             #print("CNAME_APEX: " + str(apex_list))
     #print("WHOIS -> " + str(cname))
 
+def splash():
+    print(colored("""
+   _____ _   _______    _____ _    _ _   ____  ___
+  /  ___| | | | ___ \   |  ___| \ | | | | |  \/  |
+  \ `--.| | | | |_/ /___| |__ |  \| | | | | .  . |
+   `--. \ | | | ___ \___|  __|| . ` | | | | |\/| |
+  /\__/ / |_| | |_/ /   | |___| |\  | |_| | |  | |
+  \____/ \___/\____/    \____/\_| \_/\___/\_|  |_/
+
+     > Subdomain > CNAME > CNAME > CNAME > WHOIS
+
+     A passive DNS Stale records finder - Enjoy!!
+
+    ""","yellow"))
+    return
+
 ##
 # Main menu
 ##
 if __name__ == "__main__":
+    splash()
     ap = argparse.ArgumentParser(description='Expired CNAME\'s finder.',
            usage='Use "python3 %(prog)s --help" for more information',
            formatter_class=argparse.RawTextHelpFormatter)
