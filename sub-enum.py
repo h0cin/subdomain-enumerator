@@ -61,7 +61,7 @@ def check_cname(subdomain):
     cname_list = []
     cname_lists = []
     if cnames is not None:
-        print(colored("> SUBDOM: " + str(subdomain),"white"))
+        print(colored("> SUBDOMAIN: " + str(subdomain),"white"))
         for hostname in cnames:
             print("> CNAME[0]: " + str(hostname))
             cname_dive = cname_diving(hostname)
@@ -105,8 +105,7 @@ def check_whois(cname_list):
 
     for apex_domain in apex_dedup:
         if apex_domain == apex_subdomain:
-            print("CNAME: " + cname_record)
-            print(colored("> Subdomain and CNAME using the same Apex domain -> Following the CNAME.","magenta"))
+            print(colored("> Subdomain and CNAME using the same Apex domain, not following the CNAME.","magenta"))
         else:
             try:
                 whois_record = whois.query(apex_domain)
@@ -115,14 +114,14 @@ def check_whois(cname_list):
                 print(colored("> Error: Unknown TLD [." + apex_subname.suffix + "]", "magenta"))
                 pass
             except:
-                print(colored("> No WHOIS record, check this WHOIS server is working for this gTLD/TLD [." + cname.suffix + "]", "magenta"))
+                print(colored("> No WHOIS record, check this WHOIS server is working for this gTLD/TLD [." + apex_subname.suffix + "]", "magenta"))
                 pass
             else:
                 now = datetime.now()
                 if (whois_record is None or whois_record.expiration_date is None):
                     print(colored("> WHOIS: " + cname_record + "\n> Expiration: Expired or Invalid. Take a look!!","red", attrs=["blink"]))
                 elif (whois_record.expiration_date < now):
-                    print(colored("> Warning: domain name " + cname_record+ "expired by " + str(whois_record.expiration_date - now) + "!!","red", attrs=["blink"]))
+                    print(colored("> Warning: domain name " + cname_record + "expired by " + str(whois_record.expiration_date - now) + "!!","red", attrs=["blink"]))
                 elif (whois_record.expiration_date > now):
                     print("> WHOIS: " + cname_record + "\n> Expiration: " + str(whois_record.expiration_date))
                     print(colored("> OK by " + str(whois_record.expiration_date - now) + " hours:minutes:seconds.","green"))
