@@ -13,7 +13,7 @@ Compatible with Python 3+
 
 ![help](/pics/sub-enum-help.png)
 
-![running](/pics/running-screenshot.png)
+![running](/pics/sub-enum-running.png)
 
 ## Installation
 
@@ -91,6 +91,8 @@ Execution is pretty straightforward, just place your target's domain name after 
 ```bash
 python3 sub-enum.py -d your-domain.tld
 ```
+
+![running2](/pics/running-screenshot.png)
 
 ## License
 [To be determined]
