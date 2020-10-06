@@ -11,9 +11,10 @@ From a chosen target's domain name, it does the following:
 
 Compatible with Python 3+
 
-![help](/pics/sub-enum-help.png)
-
 ![running](/pics/sub-enum-running.png)
+
+![running2](/pics/running-screenshot.png)
+
 
 ## Installation
 
@@ -92,7 +93,7 @@ Execution is pretty straightforward, just place your target's domain name after 
 python3 sub-enum.py -d your-domain.tld
 ```
 
-![running2](/pics/running-screenshot.png)
+![help](/pics/sub-enum-help.png)
 
 ## License
 [To be determined]
