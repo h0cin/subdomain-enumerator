@@ -1,6 +1,8 @@
 # Subdomain Enumerator
 A simple proof-of-concept tool to enumerate subdomains, check for CNAME records inside them and find expired dns stale registries.
 
+![help](/pics/sub-enum-help.png)
+
 From a chosen target's domain name, it does the following:
 
 + subdomain discovery regarding the chosen domain
@@ -93,7 +95,6 @@ Execution is pretty straightforward, just place your target's domain name after 
 python3 sub-enum.py -d your-domain.tld
 ```
 
-![help](/pics/sub-enum-help.png)
 
 ## License
 [To be determined]
