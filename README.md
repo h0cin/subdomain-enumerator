@@ -1,5 +1,5 @@
 # Subdomain Enumerator
-A simple proof-of-concept tool to enumerate subdomains, check for CNAME records inside them and find expired dns stale registries.
+A simple OSINT (proof-of-conce)t( tool to enumerate subdomains, check for CNAME records inside them and find expired dns stale registries.
 
 ![help](/pics/sub-enum-help.png)
 
